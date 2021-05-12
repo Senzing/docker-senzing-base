@@ -43,6 +43,11 @@ RUN apt update \
       wget \
  && rm -rf /var/lib/apt/lists/*
 
+# upgrade apt
+RUN wget http://ftp.us.debian.org/debian/pool/main/a/apt/apt_1.8.2.2_amd64.deb
+RUN apt install ./apt_1.8.2.2_amd64.deb
+RUN rm apt_1.8.2.2_amd64.deb
+
 # Install packages via pip.
 
 RUN pip3 install --upgrade pip \
