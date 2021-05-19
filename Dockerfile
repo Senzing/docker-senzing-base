@@ -43,22 +43,6 @@ RUN apt update \
       wget \
  && rm -rf /var/lib/apt/lists/*
 
-# upgrade apt
-
-RUN wget http://ftp.us.debian.org/debian/pool/main/a/apt/apt_1.8.2.2_amd64.deb
-RUN apt install ./apt_1.8.2.2_amd64.deb
-RUN rm apt_1.8.2.2_amd64.deb
-
-# upgrade libssh2
-
-RUN wget https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
-RUN tar xvzf libssh2-1.9.0.tar.gz
-RUN wget https://www.linuxfromscratch.org/patches/blfs/svn/libssh2-1.9.0-security_fixes-1.patch
-RUN cd libssh2-1.9.0 && patch -Np1 -i ../libssh2-1.9.0-security_fixes-1.patch && ./configure --prefix=/usr --disable-static && make && make install
-
-# upgrade libpcre
-RUN wget http://ftp.us.debian.org/debian/pool/main/p/pcre3/libpcre3_8.39-13_amd64.deb && apt install ./libpcre3_8.39-13_amd64.deb && rm libpcre3_8.39-13_amd64.deb
-
 # Install packages via pip.
 
 RUN pip3 install --upgrade pip \
