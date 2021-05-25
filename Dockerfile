@@ -54,11 +54,6 @@ RUN wget http://ftp.us.debian.org/debian/pool/main/a/apt/apt_1.8.2.2_amd64.deb \
       && apt install ./apt_1.8.2.2_amd64.deb \
       && rm apt_1.8.2.2_amd64.deb
 
-# upgrade systemd to 241-7~deb10u7
-RUN wget http://ftp.us.debian.org/debian/pool/main/s/systemd/systemd_241-7~deb10u7_amd64.deb \
-      && apt install ./systemd_241-7~deb10u7_amd64.deb \
-      && rm systemd_241-7~deb10u7_amd64.deb
-
 # upgrade p11-kit to 0.23.15-2+deb10u1
 RUN wget http://ftp.us.debian.org/debian/pool/main/p/p11-kit/libp11-kit0_0.23.15-2+deb10u1_amd64.deb \
       && apt install ./libp11-kit0_0.23.15-2+deb10u1_amd64.deb \
